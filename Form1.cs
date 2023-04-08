@@ -60,27 +60,7 @@ namespace cnn_project
                 lbl_recommendedTime.Text = recommendedTime;
             }
 
-            //string timeset = tbx_medi.Text; // 변환할 문자열
-            //int num; // 정수로 변환된 값을 저장할 변수
-
-            //if (int.TryParse(timeset, out num))
-            //{
-            //    // timeset 변수의 문자열이 정수로 변환되었을 경우에 실행되는 코드
-            //    // num 변수에 정수 값이 할당됨
-            //    Console.WriteLine("정수로 변환된 값: " + num);
-            //}
-            //else
-            //{
-            //    // timeset 변수의 문자열이 정수로 변환되지 않았을 경우에 실행되는 코드
-            //    // 에러 처리 등을 수행할 수 있음
-            //    Console.WriteLine("입력 문자열의 형식이 잘못되었습니다.");
-            //}
-
-
-            //TimeSpan ts = new TimeSpan(0, num * 10, 0);
-            //DateTime time_num = Convert.ToDateTime(time);
-            //DateTime timer_result = time_num + ts;
-            //string timer_result2 = timer_result.ToString("yy년 MM월 dd일 HH:mm:ss");
+            
         }
 
         private void tbx_medi_KeyPress(object sender, KeyPressEventArgs e)
