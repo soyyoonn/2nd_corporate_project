@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,20 +28,55 @@ namespace cnn_project
         {
             if (cmb_patient.SelectedItem == null)
                 MessageBox.Show("환자 리스트를 선택해주세요");
+
             else if(tbx_medi.Text.Length == 0)
             {
                 MessageBox.Show("투여 마취제 용량을 작성해주세요");
             }
+
             else
             {
-                int dose = int.Parse(tbx_medi.Text);
-                string insertQuery = $"INSERT INTO medical_records(anesthetic_dose) VALUES({dose})";
-                connection.Open();
-                MySqlCommand command = new MySqlCommand(insertQuery, connection);
-                connection.Close();
+                try 
+                {
+                    // 프로시저 
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand("pro_patientrecord", connection);
+                   
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                // form2로 이동
-                this.Hide();
+                    // 마취제 투여랑
+                    string temp= tbx_medi.Text;
+                    int d_num = Int32.Parse(temp);
+
+                    // 환자이름
+                    object temp1= cmb_patient.SelectedItem;
+                    string p_name = Convert.ToString(temp1);
+
+                    // 타이머
+                    string timer = tbx_timer.Text;
+
+                    // 현재시각
+                    string now_time = DateTime.Now.ToString("yy-MM-dd HH:mm:ss");
+
+                    // 프로시저 매개변수
+                    cmd.Parameters.AddWithValue("@dose", d_num);
+                    cmd.Parameters.AddWithValue("@patient_name", $"{p_name}");
+                    cmd.Parameters.AddWithValue("@timertime", $"00:{timer}:00");
+                    cmd.Parameters.AddWithValue("@nowtime", $"{now_time}");
+
+                    // 프로시저 실행
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine("실패");
+                    Console.WriteLine(ex.ToString());
+                }
+
+            // form2로 이동
+            this.Hide();
                 Form2 timer_form = new Form2();
                 timer_form.ShowDialog();
                 this.Close();
