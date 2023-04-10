@@ -11,6 +11,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenCvSharp.Extensions;
 
+using System.Threading;
+using OpenCvSharp;
+using OpenCvSharp.Extensions;
+
+
 namespace cnn_project
 {
     public partial class Form2 : Form
