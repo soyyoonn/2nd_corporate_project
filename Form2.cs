@@ -62,7 +62,6 @@ namespace cnn_project
                 Thread.Sleep(100);
             }
         }
-
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             var frameBitmap = (Bitmap)e.UserState;
