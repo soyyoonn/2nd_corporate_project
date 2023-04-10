@@ -84,7 +84,7 @@ namespace cnn_project
             TimeSpan t = now - DateTime.Now; // 목표 시간과 현재 시간의 차이를 계산하여 TimeSpan 형태로 저장
             if (t > TimeSpan.Zero)
             {
-                lbl_timer.Text = String.Format("{0}", t.ToString("hh':'mm':'ss"));  // 차이를 "hh:mm:ss" 형태의 문자열로 변환하여 textBox_timer 컨트롤에 출력합니다.
+                lbl_timer.Text = String.Format("{0}", t.ToString("hh:mm:ss"));  // 차이를 "hh:mm:ss" 형태의 문자열로 변환하여 textBox_timer 컨트롤에 출력합니다.
             }
             else
             {
