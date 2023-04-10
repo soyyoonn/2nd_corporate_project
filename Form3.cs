@@ -16,13 +16,5 @@ namespace cnn_project
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form1 start_form = new Form1();
-            start_form.ShowDialog();
-            this.Close();
-        }
     }
 }
