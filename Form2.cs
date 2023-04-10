@@ -93,11 +93,16 @@ namespace cnn_project
                 capture.Dispose();
                 timer1.Stop();
                 button2.Visible = true;
-                label2.Visible = true;
+                pictureBox2.Visible = true;
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
             // form2로 이동
             this.Hide();
@@ -105,7 +110,7 @@ namespace cnn_project
             first_form.ShowDialog();
             this.Close();
 
-            label2.Visible = false;
+            pictureBox2.Visible = false;
             button2.Visible = false;
         }
     }
