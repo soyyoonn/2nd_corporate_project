@@ -28,25 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbl_timer = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::cnn_project.Properties.Resources._52192_52890_3657;
-            this.pictureBox1.Location = new System.Drawing.Point(66, 46);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(405, 260);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -56,15 +49,6 @@
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "타이머";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(231, 355);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 15);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "실행 시간";
             // 
             // button1
             // 
@@ -92,14 +76,61 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lbl_timer
+            // 
+            this.lbl_timer.AutoSize = true;
+            this.lbl_timer.Location = new System.Drawing.Point(231, 355);
+            this.lbl_timer.Name = "lbl_timer";
+            this.lbl_timer.Size = new System.Drawing.Size(72, 15);
+            this.lbl_timer.TabIndex = 4;
+            this.lbl_timer.Text = "실행 시간";
+            // 
+            // label2
+            // 
+            this.label2.Image = global::cnn_project.Properties.Resources.잠;
+            this.label2.Location = new System.Drawing.Point(-9, -8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(543, 479);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
+            this.label2.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::cnn_project.Properties.Resources._52192_52890_3657;
+            this.pictureBox1.Location = new System.Drawing.Point(66, 46);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(405, 260);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(228, 380);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "처음화면";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 460);
+            this.ClientSize = new System.Drawing.Size(528, 463);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbl_timer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -117,9 +148,12 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbl_timer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }

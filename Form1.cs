@@ -56,6 +56,7 @@ namespace cnn_project
 
                     // 타이머 (초로변환)
                     string temp2 = tbx_timer.Text;
+                    Form2.Code = temp2;
                     int timer = Int32.Parse(temp2);
                     int seconds, hours, minute, second = 0;
                     seconds = timer * 60;
@@ -85,8 +86,8 @@ namespace cnn_project
                     Console.WriteLine(ex.ToString());
                 }
 
-            // form2로 이동
-            this.Hide();
+                // form2로 이동
+                this.Hide();
                 Form2 timer_form = new Form2();
                 timer_form.ShowDialog();
                 this.Close();
