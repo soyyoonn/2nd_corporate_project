@@ -145,6 +145,7 @@
             this.tbx_timer.Size = new System.Drawing.Size(138, 25);
             this.tbx_timer.TabIndex = 19;
             this.tbx_timer.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbx_timer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_timer_KeyPress);
             // 
             // label7
             // 

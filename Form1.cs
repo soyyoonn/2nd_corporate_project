@@ -1,7 +1,9 @@
-﻿using MySqlConnector;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -52,8 +54,16 @@ namespace cnn_project
                     object temp1= cmb_patient.SelectedItem;
                     string p_name = Convert.ToString(temp1);
 
-                    // 타이머
-                    string timer = tbx_timer.Text;
+                    // 타이머 (초로변환)
+                    string temp2 = tbx_timer.Text;
+                    int timer = Int32.Parse(temp2);
+                    int seconds, hours, minute, second = 0;
+                    seconds = timer * 60;
+
+                    //시간공식(시, 분, 초로 변환)
+                    hours = seconds / 3600;//시 공식
+                    minute = seconds % 3600 / 60;//분을 구하기위해서 입력되고 남은값에서 또 60을 나눈다.
+                    second = seconds % 3600 % 60;//마지막 남은 시간에서 분을 뺀 나머지 시간을 초로 계산함
 
                     // 현재시각
                     string now_time = DateTime.Now.ToString("yy-MM-dd HH:mm:ss");
@@ -61,7 +71,7 @@ namespace cnn_project
                     // 프로시저 매개변수
                     cmd.Parameters.AddWithValue("@dose", d_num);
                     cmd.Parameters.AddWithValue("@patient_name", $"{p_name}");
-                    cmd.Parameters.AddWithValue("@timertime", $"00:{timer}:00");
+                    cmd.Parameters.AddWithValue("@timertime", $"{hours}:{minute}:{second}");
                     cmd.Parameters.AddWithValue("@nowtime", $"{now_time}");
 
                     // 프로시저 실행
@@ -84,19 +94,13 @@ namespace cnn_project
         }
 
         private void tbx_medi_TextChanged(object sender, EventArgs e)
-        {
-
-            // 현재 시각 뜸
-            // string time = DateTime.Now.ToString("yy년 MM월 dd일 HH:mm:ss");
-            
+        {        
             // 마취제 양에 따라서 타이머 권장 시간을 작성
             if (tbx_medi.Text.Length != 0)
             {
                 string recommendedTime = Convert.ToString(int.Parse(tbx_medi.Text) * 10);
                 lbl_recommendedTime.Text = recommendedTime;
-            }
-
-            
+            } 
         }
 
         private void tbx_medi_KeyPress(object sender, KeyPressEventArgs e)
@@ -136,5 +140,16 @@ namespace cnn_project
         {
             Application.Exit();
         }
+
+        private void tbx_timer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+
     }
 }
