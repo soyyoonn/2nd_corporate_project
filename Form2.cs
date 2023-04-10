@@ -14,6 +14,8 @@ using OpenCvSharp.Extensions;
 using System.Threading;
 using OpenCvSharp;
 using OpenCvSharp.Extensions;
+using System.Media;
+using WMPLib;
 
 
 namespace cnn_project
@@ -21,7 +23,12 @@ namespace cnn_project
     public partial class Form2 : Form
     {
 
-        private readonly VideoCapture capture; 
+        private readonly VideoCapture capture;
+        WindowsMediaPlayer wmp;
+        DateTime now; // 타이머가 동작할 목표 시간을 저장할 DateTime 변수 선언
+        public static string Code { get; set; }
+        string timer_minute = Code;
+        bool music = false;
 
         public Form2()
         {
@@ -29,10 +36,7 @@ namespace cnn_project
             capture = new VideoCapture();
         }
 
-        DateTime now; // 타이머가 동작할 목표 시간을 저장할 DateTime 변수 선언
 
-        public static string Code { get; set; }
-        string timer_minute = Code;
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -48,6 +52,7 @@ namespace cnn_project
 
             now = DateTime.Now.AddMinutes(Int32.Parse($"{timer_minute}")); // 현재 시간에 타이머 분 수를 더하여 타이머가 동작할 목표 시간을 설정합니다.
             timer1.Start(); // 타이머를 시작합니다.
+
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
@@ -55,6 +60,7 @@ namespace cnn_project
             backgroundWorker1.CancelAsync();
             capture.Dispose();
             timer1.Stop();
+            wmp.controls.stop();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -88,6 +94,7 @@ namespace cnn_project
             }
             else
             {
+                wmp.controls.stop();
                 backgroundWorker1.CancelAsync();
                 capture.Dispose();
                 timer1.Stop();
@@ -96,11 +103,24 @@ namespace cnn_project
             }
         }
 
+        // 경고음버튼 누르면 소리나고, 다시 누르면 꺼짐.
         private void button1_Click(object sender, EventArgs e)
         {
 
+            if (music == false)
+            {
+                wmp = new WindowsMediaPlayer();
+                wmp.URL = @"C:\Users\SG\source\repos\2nd_corporate_project\Resources\alarm.mp3";
+                music = true;
+            }
+            else
+            {
+                music = false;
+                wmp.controls.stop();
+            }
         }
 
+        // 첫번째 화면으로 돌아감
         private void button2_Click_1(object sender, EventArgs e)
         {
             // form2로 이동
