@@ -31,27 +31,27 @@ namespace cnn_project
             if (cmb_patient.SelectedItem == null)
                 MessageBox.Show("환자 리스트를 선택해주세요");
 
-            else if(tbx_medi.Text.Length == 0)
+            else if (tbx_medi.Text.Length == 0)
             {
                 MessageBox.Show("투여 마취제 용량을 작성해주세요");
             }
 
             else
             {
-                try 
+                try
                 {
                     // 프로시저 
                     connection.Open();
                     MySqlCommand cmd = new MySqlCommand("pro_patientrecord", connection);
-                   
+
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // 마취제 투여랑
-                    string temp= tbx_medi.Text;
+                    string temp = tbx_medi.Text;
                     int d_num = Int32.Parse(temp);
 
                     // 환자이름
-                    object temp1= cmb_patient.SelectedItem;
+                    object temp1 = cmb_patient.SelectedItem;
                     string p_name = Convert.ToString(temp1);
 
                     // 타이머 (초로변환)
@@ -150,7 +150,5 @@ namespace cnn_project
                 e.Handled = true;
             }
         }
-
-
     }
 }

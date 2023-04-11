@@ -106,11 +106,10 @@ namespace cnn_project
         // 경고음버튼 누르면 소리나고, 다시 누르면 꺼짐.
         private void button1_Click(object sender, EventArgs e)
         {
-
             if (music == false)
             {
                 wmp = new WindowsMediaPlayer();
-                wmp.URL = @"C:\Users\SG\source\repos\2nd_corporate_project\Resources\alarm.mp3";
+                wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
                 music = true;
             }
             else
@@ -123,7 +122,7 @@ namespace cnn_project
         // 첫번째 화면으로 돌아감
         private void button2_Click_1(object sender, EventArgs e)
         {
-            // form2로 이동
+            // form1로 이동
             this.Hide();
             Form1 first_form = new Form1();
             first_form.ShowDialog();
@@ -132,5 +131,7 @@ namespace cnn_project
             pictureBox2.Visible = false;
             button2.Visible = false;
         }
+
+      
     }
 }

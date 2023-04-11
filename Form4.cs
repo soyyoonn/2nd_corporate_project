@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace cnn_project
 {
-    public partial class Form3 : Form
+    public partial class Form4 : Form
     {
-        public Form3()
+        public Form4()
         {
             InitializeComponent();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 start_form = new Form1();
+            start_form.ShowDialog();
+            this.Close();
         }
     }
 }
