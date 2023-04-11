@@ -43,7 +43,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 41);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Sleep Alarm";
+            this.label1.Text = "환자 졸음 방지";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Button1

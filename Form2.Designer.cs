@@ -87,9 +87,9 @@
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = global::cnn_project.Properties.Resources.잠;
-            this.pictureBox2.Location = new System.Drawing.Point(-4, -1);
+            this.pictureBox2.Location = new System.Drawing.Point(-7, -1);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(480, 562);
+            this.pictureBox2.Size = new System.Drawing.Size(484, 562);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
