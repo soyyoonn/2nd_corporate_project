@@ -120,22 +120,6 @@ namespace cnn_project
                 }
                 Thread.Sleep(50);
             }
-            //while (true)
-            //{
-            //    stream1 = client.GetStream();
-            //    videoCapture = new VideoCapture(0);
-            //    videoCapture.Read(mat);
-
-            //    byte[] data = mat.ToBytes();
-            //    stream1.Write(BitConverter.GetBytes(data.Length), 0, 4);
-            //    stream1.Write(data, 0, data.Length);
-            //    //stream.Write(data, 0, data.Length);
-
-            //    Console.WriteLine(data.Length);
-
-            //    Bitmap bitmap = BitmapConverter.ToBitmap(mat);
-            //    pictureBox1.Image = bitmap;
-            //}
 
         }
 
