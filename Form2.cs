@@ -44,10 +44,12 @@ namespace cnn_project
         
         public Form2()
         {
+
             InitializeComponent();
             client.Connect("10.10.21.124", 6666);
             video_start();
             receive_start();
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -68,6 +70,7 @@ namespace cnn_project
         {
             while (true)
             {
+                wmp = new WindowsMediaPlayer();
                 // 서버로부터 데이터를 받음
                 byte[] data = new byte[1024];
                 NetworkStream stream2 = client.GetStream();
@@ -78,7 +81,6 @@ namespace cnn_project
                     case "졸음감지":
                         //여기에 졸음감지 시그널이 들어옵니다
                         Console.WriteLine(response);
-                        wmp = new WindowsMediaPlayer();
                         wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
                         break;
                     case "졸음미감지":
