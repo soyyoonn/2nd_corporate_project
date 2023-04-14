@@ -111,6 +111,7 @@ namespace cnn_project
                 }
                 else
                 {
+                    Console.WriteLine(response);
                     try
                     {
                         music = false;
@@ -120,7 +121,6 @@ namespace cnn_project
                     {
                         Console.WriteLine(ex.ToString());
                     }
-
                 }
             }
         }
