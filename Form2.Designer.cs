@@ -258,7 +258,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox2);
+<<<<<<< HEAD
             this.Controls.Add(this.btn_cancel);
+=======
+>>>>>>> parent of cd5f839 (숫자계산)
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbl_timer);
             this.Controls.Add(this.label1);
