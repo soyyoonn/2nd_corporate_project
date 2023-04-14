@@ -30,14 +30,13 @@ namespace cnn_project
         TcpClient client = new TcpClient();
         NetworkStream stream1;
         NetworkStream stream2;
-
         Thread videoThread;
         Thread receiveThread;
-
         VideoCapture videoCapture;
         Mat mat = new Mat();
 
         WindowsMediaPlayer wmp;
+
         DateTime now; // 타이머가 동작할 목표 시간을 저장할 DateTime 변수 선언
         public static string Code { get; set; }
         string timer_minute = Code;
@@ -54,8 +53,8 @@ namespace cnn_project
         private void Form2_Load(object sender, EventArgs e)
         {
 
-            //now = DateTime.Now.AddMinutes(Int32.Parse($"{timer_minute}")); // 현재 시간에 타이머 분 수를 더하여 타이머가 동작할 목표 시간을 설정합니다.
-            //timer1.Start(); // 타이머를 시작합니다.
+            now = DateTime.Now.AddMinutes(Int32.Parse($"{timer_minute}")); // 현재 시간에 타이머 분 수를 더하여 타이머가 동작할 목표 시간을 설정합니다.
+            timer1.Start(); // 타이머를 시작합니다.
 
         }
         private void receive_start()
@@ -79,10 +78,13 @@ namespace cnn_project
                     case "졸음감지":
                         //여기에 졸음감지 시그널이 들어옵니다
                         Console.WriteLine(response);
+                        wmp = new WindowsMediaPlayer();
+                        wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
                         break;
                     case "졸음미감지":
                         //여기에 졸음미감지 시그널이 들어옵니다
                         Console.WriteLine(response);
+                        wmp.controls.stop();
                         break;
                 }
                 if (response == "졸음감지")
@@ -135,46 +137,20 @@ namespace cnn_project
             client.Close();
         }
 
-
-        //private void timer1_Tick(object sender, EventArgs e)
-        //{
-        //    timer1.Interval = 1000; // 타이머 간격을 1000밀리초(1초)로 설정합니다.
-        //    TimeSpan t = now - DateTime.Now; // 목표 시간과 현재 시간의 차이를 계산하여 TimeSpan 형태로 저장
-        //    if (t > TimeSpan.Zero)
-        //    {
-        //        lbl_timer.Text = String.Format("{0}", t.ToString("hh':'mm':'ss"));  // 차이를 "hh:mm:ss" 형태의 문자열로 변환하여 textBox_timer 컨트롤에 출력합니다.
-        //    }
-        //    else
-        //    {
-        //        //wmp.controls.stop();
-        //        videoThread.Abort();
-
-        //        // 연결 종료
-        //        stream1.Close();
-        //        stream2.Close();
-        //        client.Close();
-
-        //        //wmp.controls.stop();
-        //        timer1.Stop();
-        //        button2.Visible = true;
-        //        pictureBox2.Visible = true;
-        //    }
-        //}
-
-        // 경고음버튼 누르면 소리나고, 다시 누르면 꺼짐.
+        //// 경고음버튼 누르면 소리나고, 다시 누르면 꺼짐.
         private void button1_Click(object sender, EventArgs e)
         {
-            if (music == false)
-            {
-                wmp = new WindowsMediaPlayer();
-                wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
-                music = true;
-            }
-            else
-            {
-                music = false;
-                wmp.controls.stop();
-            }
+            //    if (music == false)
+            //    {
+            //        wmp = new WindowsMediaPlayer();
+            //        wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
+            //        music = true;
+            //    }
+            //    else
+            //    {
+            //        music = false;
+            //        wmp.controls.stop();
+            //    }
         }
 
         // 첫번째 화면으로 돌아감
@@ -190,6 +166,28 @@ namespace cnn_project
             button2.Visible = false;
         }
 
-      
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            timer1.Interval = 1000; // 타이머 간격을 1000밀리초(1초)로 설정합니다.
+            TimeSpan t = now - DateTime.Now; // 목표 시간과 현재 시간의 차이를 계산하여 TimeSpan 형태로 저장
+            if (t > TimeSpan.Zero)
+            {
+                lbl_timer.Text = String.Format("{0}", t.ToString("hh':'mm':'ss"));  // 차이를 "hh:mm:ss" 형태의 문자열로 변환하여 textBox_timer 컨트롤에 출력합니다.
+            }
+            else
+            {
+                //wmp.controls.stop();
+                videoThread.Abort();
+
+                // 연결 종료
+                stream1.Close();
+                //stream2.Close();
+                client.Close();
+
+                timer1.Stop();
+                button2.Visible = true;
+                pictureBox2.Visible = true;
+            }
+        }
     }
 }
