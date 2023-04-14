@@ -46,7 +46,7 @@ namespace cnn_project
         {
 
             InitializeComponent();
-            client.Connect("10.10.21.124", 6666);
+            client.Connect("10.10.21.102", 6666);
             video_start();
             receive_start();
 
@@ -116,7 +116,7 @@ namespace cnn_project
                     byte[] data = mat.ToBytes();
                     stream1.Write(BitConverter.GetBytes(data.Length), 0, 4);
                     stream1.Write(data, 0, data.Length);
-                    Console.WriteLine(data.Length);
+                    //Console.WriteLine(data.Length);
 
                     Bitmap bitmap = BitmapConverter.ToBitmap(mat);
                     pictureBox1.Image = bitmap;
@@ -180,6 +180,7 @@ namespace cnn_project
             {
                 //wmp.controls.stop();
                 videoThread.Abort();
+                receiveThread.Abort();
 
                 // 연결 종료
                 stream1.Close();
