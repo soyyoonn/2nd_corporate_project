@@ -38,6 +38,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new Guna.UI2.WinForms.Guna2Button();
             this.button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.test = new System.Windows.Forms.Label();
+            this.btn_y = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_n = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("경기천년제목B Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(36, 323);
+            this.label1.Location = new System.Drawing.Point(36, 271);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 1;
@@ -75,11 +79,10 @@
             // 
             // lbl_timer
             // 
-            this.lbl_timer.AutoSize = true;
             this.lbl_timer.Font = new System.Drawing.Font("경기천년제목B Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbl_timer.Location = new System.Drawing.Point(121, 323);
+            this.lbl_timer.Location = new System.Drawing.Point(123, 271);
             this.lbl_timer.Name = "lbl_timer";
-            this.lbl_timer.Size = new System.Drawing.Size(67, 16);
+            this.lbl_timer.Size = new System.Drawing.Size(98, 16);
             this.lbl_timer.TabIndex = 4;
             this.lbl_timer.Text = "실행 시간";
             // 
@@ -87,9 +90,9 @@
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = global::cnn_project.Properties.Resources.잠;
-            this.pictureBox2.Location = new System.Drawing.Point(-7, -1);
+            this.pictureBox2.Location = new System.Drawing.Point(294, 1);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(484, 562);
+            this.pictureBox2.Size = new System.Drawing.Size(179, 162);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
@@ -101,7 +104,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(39, 79);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(389, 219);
+            this.pictureBox1.Size = new System.Drawing.Size(397, 159);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
@@ -122,7 +125,7 @@
             this.button2.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.button2.HoverState.CustomBorderColor = System.Drawing.Color.Blue;
             this.button2.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(197, 393);
+            this.button2.Location = new System.Drawing.Point(204, 438);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 37);
             this.button2.TabIndex = 23;
@@ -146,12 +149,77 @@
             this.button1.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.button1.HoverState.CustomBorderColor = System.Drawing.Color.Blue;
             this.button1.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(360, 323);
+            this.button1.Location = new System.Drawing.Point(368, 259);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 28);
             this.button1.TabIndex = 24;
             this.button1.Text = "경고음";
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("경기천년제목B Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(36, 319);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 16);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "숫자계산";
+            // 
+            // test
+            // 
+            this.test.Font = new System.Drawing.Font("경기천년제목B Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.test.Location = new System.Drawing.Point(123, 319);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(122, 16);
+            this.test.TabIndex = 26;
+            this.test.Text = "랜덤 문제";
+            // 
+            // btn_y
+            // 
+            this.btn_y.Animated = true;
+            this.btn_y.AutoRoundedCorners = true;
+            this.btn_y.BackColor = System.Drawing.Color.Transparent;
+            this.btn_y.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_y.BorderRadius = 13;
+            this.btn_y.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_y.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_y.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_y.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_y.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_y.ForeColor = System.Drawing.Color.White;
+            this.btn_y.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btn_y.HoverState.CustomBorderColor = System.Drawing.Color.Blue;
+            this.btn_y.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btn_y.Location = new System.Drawing.Point(122, 352);
+            this.btn_y.Name = "btn_y";
+            this.btn_y.Size = new System.Drawing.Size(64, 28);
+            this.btn_y.TabIndex = 27;
+            this.btn_y.Text = "네";
+            this.btn_y.Click += new System.EventHandler(this.btn_y_Click);
+            // 
+            // btn_n
+            // 
+            this.btn_n.Animated = true;
+            this.btn_n.AutoRoundedCorners = true;
+            this.btn_n.BackColor = System.Drawing.Color.Transparent;
+            this.btn_n.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_n.BorderRadius = 13;
+            this.btn_n.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_n.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_n.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_n.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_n.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_n.ForeColor = System.Drawing.Color.White;
+            this.btn_n.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btn_n.HoverState.CustomBorderColor = System.Drawing.Color.Blue;
+            this.btn_n.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btn_n.Location = new System.Drawing.Point(204, 352);
+            this.btn_n.Name = "btn_n";
+            this.btn_n.Size = new System.Drawing.Size(66, 28);
+            this.btn_n.TabIndex = 28;
+            this.btn_n.Text = "아니오";
+            this.btn_n.Click += new System.EventHandler(this.btn_n_Click);
             // 
             // Form2
             // 
@@ -159,6 +227,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(474, 561);
+            this.Controls.Add(this.btn_n);
+            this.Controls.Add(this.btn_y);
+            this.Controls.Add(this.test);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label5);
@@ -190,5 +262,9 @@
         //private System.Windows.Forms.Button button21;
         private Guna.UI2.WinForms.Guna2Button button2;
         private Guna.UI2.WinForms.Guna2Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label test;
+        private Guna.UI2.WinForms.Guna2Button btn_y;
+        private Guna.UI2.WinForms.Guna2Button btn_n;
     }
 }
