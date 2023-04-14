@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbl_timer = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -66,16 +65,9 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "졸음 인식";
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.WorkerReportsProgress = true;
-            this.backgroundWorker1.WorkerSupportsCancellation = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
-            // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // lbl_timer
             // 
@@ -154,7 +146,6 @@
             this.button1.Size = new System.Drawing.Size(68, 28);
             this.button1.TabIndex = 24;
             this.button1.Text = "경고음";
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -181,7 +172,8 @@
             this.btn_y.AutoRoundedCorners = true;
             this.btn_y.BackColor = System.Drawing.Color.Transparent;
             this.btn_y.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_y.BorderRadius = 13;
+            this.btn_y.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_y.BorderRadius = 17;
             this.btn_y.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_y.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_y.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -191,11 +183,11 @@
             this.btn_y.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.btn_y.HoverState.CustomBorderColor = System.Drawing.Color.Blue;
             this.btn_y.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btn_y.Location = new System.Drawing.Point(122, 352);
+            this.btn_y.Location = new System.Drawing.Point(116, 354);
             this.btn_y.Name = "btn_y";
-            this.btn_y.Size = new System.Drawing.Size(64, 28);
+            this.btn_y.Size = new System.Drawing.Size(61, 36);
             this.btn_y.TabIndex = 27;
-            this.btn_y.Text = "네";
+            this.btn_y.Text = "예";
             this.btn_y.Click += new System.EventHandler(this.btn_y_Click);
             // 
             // btn_n
@@ -204,7 +196,7 @@
             this.btn_n.AutoRoundedCorners = true;
             this.btn_n.BackColor = System.Drawing.Color.Transparent;
             this.btn_n.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_n.BorderRadius = 13;
+            this.btn_n.BorderRadius = 17;
             this.btn_n.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_n.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_n.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -214,9 +206,9 @@
             this.btn_n.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.btn_n.HoverState.CustomBorderColor = System.Drawing.Color.Blue;
             this.btn_n.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.btn_n.Location = new System.Drawing.Point(204, 352);
+            this.btn_n.Location = new System.Drawing.Point(192, 354);
             this.btn_n.Name = "btn_n";
-            this.btn_n.Size = new System.Drawing.Size(66, 28);
+            this.btn_n.Size = new System.Drawing.Size(65, 36);
             this.btn_n.TabIndex = 28;
             this.btn_n.Text = "아니오";
             this.btn_n.Click += new System.EventHandler(this.btn_n_Click);
@@ -237,9 +229,9 @@
             this.Controls.Add(this.lbl_timer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -255,7 +247,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbl_timer;
         private System.Windows.Forms.PictureBox pictureBox2;
