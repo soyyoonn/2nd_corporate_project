@@ -36,6 +36,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_cancel = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -113,13 +114,36 @@
             this.button2.HoverState.BorderColor = System.Drawing.Color.Blue;
             this.button2.HoverState.CustomBorderColor = System.Drawing.Color.Blue;
             this.button2.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.button2.Location = new System.Drawing.Point(197, 393);
+            this.button2.Location = new System.Drawing.Point(197, 390);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 37);
             this.button2.TabIndex = 23;
             this.button2.Text = "처음화면";
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Animated = true;
+            this.btn_cancel.AutoRoundedCorners = true;
+            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_cancel.BorderRadius = 17;
+            this.btn_cancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_cancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_cancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_cancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_cancel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_cancel.ForeColor = System.Drawing.Color.White;
+            this.btn_cancel.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btn_cancel.HoverState.CustomBorderColor = System.Drawing.Color.Blue;
+            this.btn_cancel.HoverState.FillColor = System.Drawing.Color.Blue;
+            this.btn_cancel.Location = new System.Drawing.Point(197, 472);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(76, 37);
+            this.btn_cancel.TabIndex = 24;
+            this.btn_cancel.Text = "취소";
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // Form2
             // 
@@ -129,6 +153,7 @@
             this.ClientSize = new System.Drawing.Size(474, 561);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbl_timer);
             this.Controls.Add(this.label1);
@@ -156,5 +181,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         //private System.Windows.Forms.Button button21;
         private Guna.UI2.WinForms.Guna2Button button2;
+        private Guna.UI2.WinForms.Guna2Button btn_cancel;
     }
 }

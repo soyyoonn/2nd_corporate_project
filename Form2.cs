@@ -45,7 +45,7 @@ namespace cnn_project
         public Form2()
         {
             InitializeComponent();
-            client.Connect("10.10.21.124", 9999);
+            client.Connect("10.10.21.102", 6666);
             video_start();
             receive_start();
         }
@@ -100,7 +100,7 @@ namespace cnn_project
                     Console.WriteLine(response);
                     try
                     {
-                        wmp.URL = @"C:/Users/Kiot/source/repos/2nd_corporate_project/Resources/alarm.mp3";
+                        wmp.URL = @"C:/Users/2352/source/repos/2nd_corporate_project/Resources/alarm.mp3";
                         music = true;
                     }
                     catch (Exception ex)
@@ -205,6 +205,23 @@ namespace cnn_project
                 button2.Visible = true;
                 pictureBox2.Visible = true;
             }
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            videoThread.Abort();
+            receiveThread.Abort();
+
+            stream1.Close();
+            //stream2.Close();
+            client.Close();
+
+            timer1.Stop();
+
+            this.Hide();
+            Form1 first_form = new Form1();
+            first_form.ShowDialog();
+            this.Close();
         }
     }
 }
