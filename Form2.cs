@@ -44,12 +44,10 @@ namespace cnn_project
         
         public Form2()
         {
-
             InitializeComponent();
-            client.Connect("10.10.21.102", 6666);
+            client.Connect("10.10.21.124", 9999);
             video_start();
             receive_start();
-
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -70,7 +68,14 @@ namespace cnn_project
         {
             while (true)
             {
-                wmp = new WindowsMediaPlayer();
+                try
+                {
+                    wmp = new WindowsMediaPlayer();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
                 // 서버로부터 데이터를 받음
                 byte[] data = new byte[1024];
                 NetworkStream stream2 = client.GetStream();
@@ -81,18 +86,41 @@ namespace cnn_project
                     case "졸음감지":
                         //여기에 졸음감지 시그널이 들어옵니다
                         Console.WriteLine(response);
-                        wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
+
                         break;
                     case "졸음미감지":
                         //여기에 졸음미감지 시그널이 들어옵니다
                         Console.WriteLine(response);
-                        wmp.controls.stop();
+
                         break;
                 }
                 if (response == "졸음감지")
                 {
                     //여기에 졸음감지 시그널이 들어옵니다
                     Console.WriteLine(response);
+                    try
+                    {
+                        wmp.URL = @"C:/Users/Kiot/source/repos/2nd_corporate_project/Resources/alarm.mp3";
+                        music = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+
+                }
+                else
+                {
+                    try
+                    {
+                        music = false;
+                        wmp.controls.stop();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+
                 }
             }
         }
@@ -129,9 +157,11 @@ namespace cnn_project
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //timer1.Stop();
-            //wmp.controls.stop();
+            timer1.Stop();
+            wmp.controls.stop();
+
             videoThread.Abort();
+            receiveThread.Abort();
 
             // 연결 종료
             stream1.Close();
@@ -142,17 +172,17 @@ namespace cnn_project
         //// 경고음버튼 누르면 소리나고, 다시 누르면 꺼짐.
         private void button1_Click(object sender, EventArgs e)
         {
-            //    if (music == false)
-            //    {
-            //        wmp = new WindowsMediaPlayer();
-            //        wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
-            //        music = true;
-            //    }
-            //    else
-            //    {
-            //        music = false;
-            //        wmp.controls.stop();
-            //    }
+            //if (music == false)
+            //{
+            //    wmp = new WindowsMediaPlayer();
+            //    wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
+            //    music = true;
+            //}
+            //else
+            //{
+            //    music = false;
+            //    wmp.controls.stop();
+            //}
         }
 
         // 첫번째 화면으로 돌아감
