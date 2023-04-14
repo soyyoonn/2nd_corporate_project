@@ -1,5 +1,4 @@
-﻿
-using WMPLib;
+﻿using WMPLib;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +22,11 @@ using System.Runtime.InteropServices.ComTypes;
 using Newtonsoft.Json.Linq;
 using static System.Net.WebRequestMethods;
 
+using MySqlConnector;
+using Mysqlx.Crud;
+using Mysqlx.Notice;
+
+
 namespace cnn_project
 {
     public partial class Form2 : Form
@@ -36,12 +40,14 @@ namespace cnn_project
         Mat mat = new Mat();
 
         WindowsMediaPlayer wmp;
+        MySqlConnection connection = new MySqlConnection("server=10.10.21.102;Database=medical_details;Uid=manager;Pwd=0000");
 
         DateTime now; // 타이머가 동작할 목표 시간을 저장할 DateTime 변수 선언
         public static string Code { get; set; }
         string timer_minute = Code;
         bool music = false;
-        
+        bool warning = false;
+
         public Form2()
         {
             InitializeComponent();
@@ -55,6 +61,26 @@ namespace cnn_project
 
             now = DateTime.Now.AddMinutes(Int32.Parse($"{timer_minute}")); // 현재 시간에 타이머 분 수를 더하여 타이머가 동작할 목표 시간을 설정합니다.
             timer1.Start(); // 타이머를 시작합니다.
+
+            try
+            {
+                string selectQuery = "SELECT * FROM medical_details.number_test ORDER BY RAND() LIMIT 1";
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+                MySqlDataReader table = cmd.ExecuteReader();
+
+                while (table.Read())
+                {
+                    Console.WriteLine("번호: {0}, 문제: {1}", table["num"], table["test"]);
+                    test.Text = table["test"].ToString();
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("실패");
+                Console.WriteLine(ex.ToString());
+            }
 
         }
         private void receive_start()
@@ -204,6 +230,74 @@ namespace cnn_project
                 timer1.Stop();
                 button2.Visible = true;
                 pictureBox2.Visible = true;
+            }
+        }
+
+        private void btn_y_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectQuery = "SELECT * FROM medical_details.number_test ORDER BY RAND() LIMIT 1";
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+                MySqlDataReader table = cmd.ExecuteReader();
+
+                while (table.Read())
+                {
+                    Console.WriteLine("번호: {0}, 문제: {1}", table["num"], table["test"]);
+                    test.Text = table["test"].ToString();
+                }
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("실패");
+                Console.WriteLine(ex.ToString());
+            }
+
+            if (warning == true)
+            {
+                warning = false;
+                wmp.controls.stop();
+
+                try
+                {
+                    string selectQuery = "SELECT * FROM medical_details.number_test ORDER BY RAND() LIMIT 1";
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+                    MySqlDataReader table = cmd.ExecuteReader();
+
+                    while (table.Read())
+                    {
+                        Console.WriteLine("번호: {0}, 문제: {1}", table["num"], table["test"]);
+                        test.Text = table["test"].ToString();
+                    }
+                    connection.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("실패");
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+        }
+
+        private void btn_n_Click(object sender, EventArgs e)
+        {
+            if (warning == false)
+            {
+                wmp = new WindowsMediaPlayer();
+                wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
+                warning = true;
+
+            }
+
+            else
+            {
+                warning = false;
+                wmp.controls.stop();
             }
         }
 
