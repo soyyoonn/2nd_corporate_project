@@ -25,6 +25,7 @@ using static System.Net.WebRequestMethods;
 using MySqlConnector;
 using Mysqlx.Crud;
 using Mysqlx.Notice;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace cnn_project
@@ -51,7 +52,7 @@ namespace cnn_project
         public Form2()
         {
             InitializeComponent();
-            client.Connect("10.10.21.102", 6666);
+            client.Connect("10.10.21.124", 9999);
             video_start();
             receive_start();
         }
@@ -126,7 +127,7 @@ namespace cnn_project
                     Console.WriteLine(response);
                     try
                     {
-                        wmp.URL = @"C:/Users/2352/source/repos/2nd_corporate_project/Resources/alarm.mp3";
+                        wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
                         music = true;
                     }
                     catch (Exception ex)
@@ -137,6 +138,7 @@ namespace cnn_project
                 }
                 else
                 {
+                    Console.WriteLine(response);
                     try
                     {
                         music = false;
@@ -146,7 +148,6 @@ namespace cnn_project
                     {
                         Console.WriteLine(ex.ToString());
                     }
-
                 }
             }
         }
@@ -307,7 +308,6 @@ namespace cnn_project
             receiveThread.Abort();
 
             stream1.Close();
-            //stream2.Close();
             client.Close();
 
             timer1.Stop();
