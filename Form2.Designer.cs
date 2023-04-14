@@ -86,9 +86,9 @@
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = global::cnn_project.Properties.Resources.잠;
-            this.pictureBox2.Location = new System.Drawing.Point(-4, 1);
+            this.pictureBox2.Location = new System.Drawing.Point(294, 1);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(486, 565);
+            this.pictureBox2.Size = new System.Drawing.Size(179, 162);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
@@ -252,6 +252,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(474, 561);
+            this.Controls.Add(this.btn_n);
+            this.Controls.Add(this.btn_y);
+            this.Controls.Add(this.test);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btn_cancel);
@@ -259,10 +263,6 @@
             this.Controls.Add(this.lbl_timer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btn_n);
-            this.Controls.Add(this.btn_y);
-            this.Controls.Add(this.test);
-            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form2";
             this.Text = "Form2";
