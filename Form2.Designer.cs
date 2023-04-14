@@ -36,7 +36,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -79,9 +78,9 @@
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Image = global::cnn_project.Properties.Resources.잠;
-            this.pictureBox2.Location = new System.Drawing.Point(-7, -1);
+            this.pictureBox2.Location = new System.Drawing.Point(0, -3);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(483, 565);
+            this.pictureBox2.Size = new System.Drawing.Size(476, 567);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
@@ -122,29 +121,6 @@
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // button1
-            // 
-            this.button1.Animated = true;
-            this.button1.AutoRoundedCorners = true;
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.BorderRadius = 13;
-            this.button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.button1.HoverState.CustomBorderColor = System.Drawing.Color.Blue;
-            this.button1.HoverState.FillColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(360, 323);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 28);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "경고음";
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -157,7 +133,6 @@
             this.Controls.Add(this.lbl_timer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form2";
             this.Text = "Form2";
@@ -180,6 +155,5 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         //private System.Windows.Forms.Button button21;
         private Guna.UI2.WinForms.Guna2Button button2;
-        private Guna.UI2.WinForms.Guna2Button button1;
     }
 }

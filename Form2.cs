@@ -169,22 +169,6 @@ namespace cnn_project
             client.Close();
         }
 
-        //// 경고음버튼 누르면 소리나고, 다시 누르면 꺼짐.
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //if (music == false)
-            //{
-            //    wmp = new WindowsMediaPlayer();
-            //    wmp.URL = @"C:\Users\Kiot\Downloads\alarm.mp3";
-            //    music = true;
-            //}
-            //else
-            //{
-            //    music = false;
-            //    wmp.controls.stop();
-            //}
-        }
-
         // 첫번째 화면으로 돌아감
         private void button2_Click_1(object sender, EventArgs e)
         {
